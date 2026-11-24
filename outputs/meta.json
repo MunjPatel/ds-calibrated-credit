@@ -1,0 +1,11 @@
+{
+  "n_rows": 30000,
+  "default_rate": 0.2212,
+  "logistic_auc": 0.7545943592328611,
+  "lgbm_auc": 0.7870021931167146,
+  "best_calibration": "lgbm_isotonic",
+  "best_brier": 0.13288813219620266,
+  "best_threshold": 0.13999999999999999,
+  "approval_rate_at_best": 0.4747945813901843,
+  "realized_profit_at_best": 19623500.0
+}

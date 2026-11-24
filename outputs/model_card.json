@@ -1,0 +1,63 @@
+{
+  "name": "Calibrated revolving-credit default model",
+  "intended_use": "Portfolio demonstration of PD calibration + expected-loss thresholding; not for production underwriting.",
+  "data": "UCI Default of Credit Card Clients (Yeh & Lien, 2009), n=30000",
+  "default_rate": 0.2212,
+  "features": {
+    "baseline_count": 9,
+    "full_count": 32,
+    "leakage_controls": "No post-default outcomes; splits before calibration; calibrate set held out from training."
+  },
+  "metrics_test": [
+    {
+      "model": "lgbm_isotonic",
+      "brier": 0.13288813219620266,
+      "ece": 0.011032747023432744,
+      "auc": 0.786571351247124,
+      "pr_auc": 0.5524964691529286
+    },
+    {
+      "model": "lgbm_platt",
+      "brier": 0.13384335533353375,
+      "ece": 0.02135810024337146,
+      "auc": 0.7870021931167146,
+      "pr_auc": 0.5651466880512414
+    },
+    {
+      "model": "lgbm_raw",
+      "brier": 0.18661099344568638,
+      "ece": 0.22275299677120491,
+      "auc": 0.7870021931167146,
+      "pr_auc": 0.5651466880512414
+    },
+    {
+      "model": "logistic_raw",
+      "brier": 0.19254823756155892,
+      "ece": 0.22795900853942275,
+      "auc": 0.7545943592328611,
+      "pr_auc": 0.5252600036046786
+    }
+  ],
+  "selected_calibration": "lgbm_isotonic",
+  "economics_assumptions": {
+    "lgd": 0.45,
+    "margin": 0.08,
+    "ead_fraction": 1.0,
+    "note": "Assumptions for demonstration only \u2014 state these in interviews."
+  },
+  "selected_threshold": {
+    "threshold": 0.13999999999999999,
+    "approval_rate": 0.4747945813901843,
+    "n_approved": 2138.0,
+    "default_rate_approved": 0.0832553788587465,
+    "realized_profit": 19623500.0,
+    "realized_loss": 14728500.0,
+    "avg_pd_approved": 0.08351992725799302
+  },
+  "sources": [
+    "Niculescu-Mizil & Caruana (2005), Predicting Good Probabilities with Supervised Learning, ICML",
+    "Ke et al. (2017), LightGBM, NeurIPS",
+    "Stripe Radar engineering blog \u2014 FP/FN cost framing",
+    "Yeh & Lien (2009), UCI credit card default dataset"
+  ]
+}
