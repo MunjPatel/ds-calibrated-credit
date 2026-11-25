@@ -154,7 +154,7 @@ def main():
             "lgd": econ.lgd,
             "margin": econ.margin,
             "ead_fraction": econ.ead_fraction,
-            "note": "Assumptions for demonstration only — state these in interviews.",
+            "note": "Unit-economics assumptions for this public-data demonstration only.",
         },
         "selected_threshold": chosen,
         "sources": [

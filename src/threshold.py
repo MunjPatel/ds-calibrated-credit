@@ -10,7 +10,7 @@ import pandas as pd
 
 @dataclass
 class Economics:
-    """Assumed unit economics — always state these; never claim bank P&L."""
+    """Assumed unit economics for this public-data demonstration (not bank P&L)."""
 
     lgd: float = 0.45  # loss given default
     ead_fraction: float = 1.0  # exposure = limit_bal * ead_fraction (simplified)

@@ -5,7 +5,7 @@
 
 ## Problem
 
-Lenders do not ship “highest AUC.” They need probabilities that mean something in dollars, and thresholds that trade off false approvals (credit loss) against false declines (lost margin). This project implements that decision loop on public data.
+I built this around a practical credit decision loop: calibrated probabilities that mean something in dollars, and approval thresholds that trade off false approvals against false declines — not AUC alone.
 
 ## What I built
 
@@ -60,3 +60,8 @@ streamlit run 05_ds_calibrated_credit/app/dashboard.py
 5. Python version 3.11+ recommended → Deploy
 
 The app reads artifacts under `outputs/`. Re-run `scripts/run_mvp.py` locally if you need to refresh them before pushing.
+
+## Live dashboard
+
+[https://ds-calibrated-credit.streamlit.app/](https://ds-calibrated-credit.streamlit.app/)
+
